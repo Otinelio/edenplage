@@ -1,0 +1,128 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700;800&family=Montserrat:wght@300;400;500;600;700&family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400;1,500;1,600&display=swap');
+@import "tailwindcss" source(none);
+@source "../src";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+@theme inline {
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-ocean: var(--ocean);
+  --color-turquoise: var(--turquoise);
+  --color-sand: var(--sand);
+  --color-coral: var(--coral);
+  --color-seafoam: var(--seafoam);
+  --color-palm: var(--palm);
+  --font-heading: var(--font-heading);
+  --font-body: var(--font-body);
+  --font-accent: var(--font-accent);
+}
+
+:root {
+  --radius: 0.75rem;
+  --ocean: #1A3A5C;
+  --turquoise: #0E9F8E;
+  --sand: #F2E0B6;
+  --coral: #E8652A;
+  --seafoam: #F8FAF9;
+  --palm: #2A6B4F;
+  --font-heading: 'Playfair Display', serif;
+  --font-body: 'Montserrat', sans-serif;
+  --font-accent: 'Cormorant Garamond', serif;
+
+  --background: #F8FAF9;
+  --foreground: #1A3A5C;
+  --card: #ffffff;
+  --card-foreground: #1A3A5C;
+  --popover: #ffffff;
+  --popover-foreground: #1A3A5C;
+  --primary: #1A3A5C;
+  --primary-foreground: #F8FAF9;
+  --secondary: #F2E0B6;
+  --secondary-foreground: #1A3A5C;
+  --muted: #EFEAE0;
+  --muted-foreground: #5A6B7A;
+  --accent: #0E9F8E;
+  --accent-foreground: #ffffff;
+  --destructive: #E8652A;
+  --destructive-foreground: #ffffff;
+  --border: #E5DCC8;
+  --input: #E5DCC8;
+  --ring: #0E9F8E;
+}
+
+@layer base {
+  * { border-color: var(--color-border); }
+  html { scroll-behavior: smooth; }
+  body {
+    background-color: var(--color-background);
+    color: var(--color-foreground);
+    font-family: var(--font-body);
+    -webkit-font-smoothing: antialiased;
+  }
+  h1, h2, h3, h4, h5, h6 { font-family: var(--font-heading); letter-spacing: -0.01em; }
+}
+
+@keyframes wave-float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-8px); }
+}
+@keyframes marquee {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+@keyframes bounce-slow {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(10px); }
+}
+@keyframes coral-flash {
+  0% { background-color: rgba(232,101,42,0.4); }
+  100% { background-color: transparent; }
+}
+@keyframes wave-stroke {
+  0%, 100% { d: path("M0,30 Q150,10 300,30 T600,30 T900,30 T1200,30 L1200,60 L0,60 Z"); }
+  50% { d: path("M0,30 Q150,50 300,30 T600,30 T900,30 T1200,30 L1200,60 L0,60 Z"); }
+}
+
+.animate-marquee { animation: marquee 40s linear infinite; }
+.animate-bounce-slow { animation: bounce-slow 2s ease-in-out infinite; }
+.animate-wave-float { animation: wave-float 6s ease-in-out infinite; }
+.animate-coral-flash { animation: coral-flash 1.5s ease-out; }
+
+.glass {
+  background: rgba(255,255,255,0.7);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255,255,255,0.4);
+}
+.glass-dark {
+  background: rgba(26,58,92,0.55);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255,255,255,0.12);
+}
+.text-balance { text-wrap: balance; }
+.hero-overlay {
+  background: linear-gradient(180deg, rgba(26,58,92,0.55) 0%, rgba(14,159,142,0.30) 100%);
+}
