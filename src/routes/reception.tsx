@@ -16,7 +16,7 @@ type Order = {
 
 function ReceptionPage() {
   const [authed, setAuthed] = useState(false);
-  if (!authed) return <PinGate keyName={LS_KEYS.RECEPTION_PIN} defaultPin="1234" onOk={() => setAuthed(true)} label="Réception" />;
+  if (!authed) return <PinGate keyName={LS_KEYS.RECEPTION_PIN} defaultPin="9999" onOk={() => setAuthed(true)} label="Réception" />;
   return <ReceptionDashboard />;
 }
 
