@@ -10,6 +10,7 @@ import {
 
 import appCss from "../styles.css?url";
 import { SiteShell } from "@/components/SiteShell";
+import { SplashScreen } from "@/components/SplashScreen";
 
 function NotFoundComponent() {
   return (
@@ -94,6 +95,7 @@ function RootComponent() {
   const { queryClient } = Route.useRouteContext();
   return (
     <QueryClientProvider client={queryClient}>
+      <SplashScreen />
       <SiteShell>
         <Outlet />
       </SiteShell>
